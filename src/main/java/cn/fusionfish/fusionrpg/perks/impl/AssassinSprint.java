@@ -3,9 +3,12 @@ package cn.fusionfish.fusionrpg.perks.impl;
 import cn.fusionfish.fusionrpg.FusionRPG;
 import cn.fusionfish.fusionrpg.perks.PerkException;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +26,8 @@ public class AssassinSprint implements Perk{
                 .normalize()
                 .multiply(2);
         player.setVelocity(sprint);
+
+        world.playSound(location, Sound.ENTITY_ARROW_SHOOT, 1f, 1f);
 
         BukkitRunnable runnable = new BukkitRunnable() {
 
@@ -48,6 +53,11 @@ public class AssassinSprint implements Perk{
                 if (!hitBuffer.isEmpty()) {
                     this.cancel();
                     //TODO 撞击粒子，声效
+
+                    player.setVelocity(new Vector().zero());
+                    PotionEffect effect = new PotionEffect(PotionEffectType.SLOW, 10, 2, false, false);
+                    player.addPotionEffect(effect);
+
                     hitBuffer.forEach(entity -> {
                         Vector vector = entity.getLocation()
                                 .subtract(loc)
