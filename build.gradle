@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.fusionfish'
+version '1.0'
+
+repositories {
+    // Paper
+    maven {
+        url 'https://papermc.io/repo/repository/maven-public/'
+    }
+
+    maven {
+        name "luck-repo"
+        url "https://repo.lucko.me/"
+    }
+
+    // WorldEdit
+    maven {
+        url = uri("https://maven.enginehub.org/repo/")
+    }
+
+    // PlotSquared
+    maven {
+        url = uri("https://mvn.intellectualsites.com/content/groups/public/")
+    }
+
+    //PAPI
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+
+    maven { url 'https://jitpack.io' }
+
+    mavenCentral()
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
+    compileOnly 'org.jetbrains:annotations:21.0.1'
+    compile ('me.lucko.luckperms:luckperms-api:4.4')
+    compileOnly("com.plotsquared:PlotSquared-Core:5.13.3")
+    compileOnly("com.plotsquared:PlotSquared-Bukkit:5.13.3")
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly 'me.clip:placeholderapi:2.10.10'
+}
+
+[compileJava,compileTestJava]*.options*.encoding = 'UTF-8'
+
+// 插件导出目录
+libsDirName = 'E:\\1.16.4 server\\plugins'
+

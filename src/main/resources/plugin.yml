@@ -1,0 +1,5 @@
+name: FusionRPG
+author: FusionFish
+version: 1.0
+main: cn.fusionfish.fusionrpg.FusionRPG
+api-version: 1.16
