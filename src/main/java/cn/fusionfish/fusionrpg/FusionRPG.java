@@ -1,5 +1,6 @@
 package cn.fusionfish.fusionrpg;
 
+import cn.fusionfish.fusionrpg.commands.profiles.ProfileCommand;
 import cn.fusionfish.fusionrpg.listeners.ItemUseListener;
 import cn.fusionfish.fusionrpg.listeners.PlayerJoinListener;
 import cn.fusionfish.fusionrpg.listeners.PlayerQuitListener;
@@ -29,6 +30,7 @@ public class FusionRPG extends FusionPlugin {
         perkCoolDownManager = new PerkCoolDownManager();
 
         getCommandManager().registerCommand(new TestParent());
+        getCommandManager().registerCommand(new ProfileCommand());
     }
 
     public static PlayerManager getPlayerManager() {

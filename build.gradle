@@ -46,7 +46,7 @@ allprojects {
 
 dependencies {
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
-    compileOnly 'org.jetbrains:annotations:21.0.1'
+    compileOnly 'org.jetbrains:annotations:22.0.0'
     compile ('me.lucko.luckperms:luckperms-api:4.4')
     compileOnly("com.plotsquared:PlotSquared-Core:5.13.3")
     compileOnly("com.plotsquared:PlotSquared-Bukkit:5.13.3")

@@ -7,6 +7,7 @@ import cn.fusionfish.libs.players.AbstractPlayerFactory;
 import cn.fusionfish.libs.utils.FileUtil;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -74,6 +75,10 @@ public class PlayerManager {
     @NotNull
     public FusionRPGPlayer getPlayer(@NotNull Player player) {
         return Objects.requireNonNull(getPlayer(player.getUniqueId()));
+    }
+
+    public FusionRPGPlayer getPlayer(String name) {
+        return getPlayer(Objects.requireNonNull(Bukkit.getPlayerUniqueId(name)));
     }
 
     public void reloadPlayer(@NotNull UUID uuid) {
