@@ -18,26 +18,20 @@ public class PlayerFactory implements AbstractPlayerFactory {
 
     @Override
     @Nullable
-    public FusionRPGPlayer getFusionPlayer(@NotNull UUID uuid) {
-        return getPlayer(getPlayerDataFile(uuid));
-    }
 
-    @Override
-    public String getDefaultString(@NotNull UUID uuid) {
-        NoobPlayer noobPlayer = new NoobPlayer();
-        String name = Bukkit.getOfflinePlayer(uuid).getName();
-        assert name != null;
-        noobPlayer.setName(name);
-        noobPlayer.setUniqueId(uuid);
-        return new Gson().toJson(noobPlayer);
+    public FusionRPGPlayer getFusionPlayer(@NotNull UUID uuid) {
+
+        File file = getPlayerDataFile(uuid);
+
+        return getFusionPlayer(file);
     }
 
     @SuppressWarnings("unchecked")
-    @Nullable
-    public static FusionRPGPlayer getPlayer(File file) {
+    public FusionRPGPlayer getFusionPlayer(File file) {
         JsonObject jsonObject = FileUtil.getJson(file);
         assert jsonObject != null;
         String profession = jsonObject.get("profession").getAsString();
+
         try {
             String className = profession + "Player";
             //使用反射获得对应的玩家类
@@ -48,6 +42,16 @@ public class PlayerFactory implements AbstractPlayerFactory {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public String getDefaultString(@NotNull UUID uuid) {
+        NoobPlayer noobPlayer = new NoobPlayer();
+        String name = Bukkit.getOfflinePlayer(uuid).getName();
+        assert name != null;
+        noobPlayer.setName(name);
+        noobPlayer.setUniqueId(uuid);
+        return new Gson().toJson(noobPlayer);
     }
 
 }

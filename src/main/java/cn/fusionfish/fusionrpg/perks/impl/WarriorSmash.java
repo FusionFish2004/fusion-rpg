@@ -11,11 +11,12 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.NotNull;
 
 public class WarriorSmash implements Perk {
 
     @Override
-    public void execute(Player player) {
+    public void execute(@NotNull Player player) {
 
         final World world = player.getWorld();
         Location location = player.getLocation();

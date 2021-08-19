@@ -3,17 +3,17 @@ package cn.fusionfish.fusionrpg.listeners;
 import cn.fusionfish.fusionrpg.players.FusionRPGPlayer;
 import cn.fusionfish.fusionrpg.players.PlayerManager;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 
 public class ItemUseListener implements Listener {
     @EventHandler
-    public void onUse(PlayerInteractEvent event) {
+    public void onUse(@NotNull PlayerInteractEvent event) {
 
         if (event.getAction() == Action.PHYSICAL) {
             return;
@@ -26,7 +26,6 @@ public class ItemUseListener implements Listener {
             long lastInteract = fusionRPGPlayer.getLastInteract();
             long now = new Date().getTime();
             if (now - lastInteract <= 200) {
-                //TODO 释放技能
                 fusionRPGPlayer.getPerk().execute(player);
                 event.setCancelled(true);
             }

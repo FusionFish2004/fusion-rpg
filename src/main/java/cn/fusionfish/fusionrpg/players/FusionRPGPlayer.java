@@ -48,7 +48,6 @@ public abstract class FusionRPGPlayer extends cn.fusionfish.libs.players.FusionP
 
     public void setProfession(Profession profession) {
         this.profession = profession;
-        PlayerManager.getInstance().reloadPlayer(getUniqueId());
     }
 
     public int getLvl() {

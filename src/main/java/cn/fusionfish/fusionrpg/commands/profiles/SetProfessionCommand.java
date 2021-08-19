@@ -26,8 +26,10 @@ public class SetProfessionCommand extends SimpleCommand {
             Profession profession = Profession.valueOf(professionName);
 
             player.setProfession(profession);
-
             player.save();
+
+            PlayerManager.getInstance().reloadPlayer(player.getUniqueId());
+
             sendMsg("§a设置成功！");
 
 

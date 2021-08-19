@@ -10,13 +10,14 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
 import java.util.Set;
 
 public class WarriorDefend implements Perk {
     @Override
-    public void execute(Player player) throws PerkException {
+    public void execute(@NotNull Player player) throws PerkException {
         ItemStack main = player.getInventory().getItemInMainHand();
         ItemStack off = player.getInventory().getItemInOffHand();
         World world = player.getWorld();

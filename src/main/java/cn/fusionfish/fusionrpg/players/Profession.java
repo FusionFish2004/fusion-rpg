@@ -5,5 +5,5 @@ public enum Profession {
     Noob,
     Warrior,
     Assassin,
-
+    Wizard,
 }

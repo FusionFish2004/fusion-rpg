@@ -8,6 +8,8 @@ import cn.fusionfish.fusionrpg.perks.PerkCoolDownManager;
 import cn.fusionfish.fusionrpg.players.PlayerManager;
 import cn.fusionfish.fusionrpg.test.commands.TestParent;
 import cn.fusionfish.libs.plugin.FusionPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 
 public class FusionRPG extends FusionPlugin {
@@ -31,6 +33,10 @@ public class FusionRPG extends FusionPlugin {
 
         getCommandManager().registerCommand(new TestParent());
         getCommandManager().registerCommand(new ProfileCommand());
+
+        Bukkit.getOnlinePlayers().stream()
+                .map(Player::getUniqueId)
+                .forEach(playerManager::join);
     }
 
     public static PlayerManager getPlayerManager() {

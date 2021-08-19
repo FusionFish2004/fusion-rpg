@@ -3,6 +3,8 @@ package cn.fusionfish.libs.utils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -13,7 +15,7 @@ import java.util.Objects;
 
 public class FileUtil {
 
-    public static JsonObject getJson(File file){
+    public static @Nullable JsonObject getJson(@NotNull File file){
         if (!file.exists()){
             return null;
         }
@@ -43,7 +45,7 @@ public class FileUtil {
         }
     }
 
-    public static List<File> getFiles(File dir){
+    public static @Nullable List<File> getFiles(@NotNull File dir){
         if(!dir.isDirectory() || !dir.exists()){
             return null;
         }

@@ -31,7 +31,7 @@ public class PlayerManager {
         log("加载玩家数据...");
         Objects.requireNonNull(FileUtil.getFiles(PLAYER_DATA_FOLDER))
                 .stream()
-                .map(PlayerFactory::getPlayer)
+                .map(factory::getFusionPlayer)
                 .filter(Objects::nonNull)
                 .forEach(player -> {
                     playerMap.put(player.getUniqueId(), player);
@@ -69,10 +69,14 @@ public class PlayerManager {
 
     @Nullable
     public FusionRPGPlayer getPlayer(@NotNull UUID uuid) {
+
+        if (!playerMap.containsKey(uuid)) {
+            playerMap.put(uuid,factory.getFusionPlayer(uuid));
+        }
+
         return playerMap.get(uuid);
     }
 
-    @NotNull
     public FusionRPGPlayer getPlayer(@NotNull Player player) {
         return Objects.requireNonNull(getPlayer(player.getUniqueId()));
     }
@@ -90,7 +94,7 @@ public class PlayerManager {
         log("正在更新" + player.getName() + "的玩家数据...");
         player.save();
 
-        playerMap.put(uuid, PlayerFactory.getPlayer(file));
+        playerMap.put(uuid, factory.getFusionPlayer(file));
         join(uuid);
 
     }

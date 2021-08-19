@@ -8,6 +8,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.util.UUID;
 
+import static cn.fusionfish.libs.utils.MessageUtil.log;
+
 public interface AbstractPlayerFactory {
 
     FusionPlayer getFusionPlayer(@NotNull UUID uuid);
@@ -25,6 +27,7 @@ public interface AbstractPlayerFactory {
             }
             return file;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
