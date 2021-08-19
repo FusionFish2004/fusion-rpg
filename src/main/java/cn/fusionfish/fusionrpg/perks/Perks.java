@@ -16,7 +16,7 @@ public enum Perks {
     NULL("空", player -> {}, 0, Profession.All),
 
     //新手技能
-    NOOB("新手技能",player -> player.chat("im a noob"), 10, Profession.Noob),
+    NOOB("新手技能",player -> {}, 10, Profession.Noob),
 
     //战士
     WARRIOR_SMASH("空",new WarriorSmash(), 100, Profession.Warrior),
