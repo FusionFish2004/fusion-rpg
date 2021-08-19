@@ -1,7 +1,8 @@
-package cn.fusionfish.fusionrpg.perks.impl;
+package cn.fusionfish.fusionrpg.perks.impl.warrior;
 
 import cn.fusionfish.fusionrpg.FusionRPG;
 import cn.fusionfish.fusionrpg.perks.PerkException;
+import cn.fusionfish.fusionrpg.perks.impl.Perk;
 import com.google.common.collect.Sets;
 import org.bukkit.*;
 import org.bukkit.entity.*;

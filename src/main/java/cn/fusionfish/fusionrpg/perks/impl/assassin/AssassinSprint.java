@@ -1,7 +1,8 @@
-package cn.fusionfish.fusionrpg.perks.impl;
+package cn.fusionfish.fusionrpg.perks.impl.assassin;
 
 import cn.fusionfish.fusionrpg.FusionRPG;
 import cn.fusionfish.fusionrpg.perks.PerkException;
+import cn.fusionfish.fusionrpg.perks.impl.Perk;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.World;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AssassinSprint implements Perk{
+public class AssassinSprint implements Perk {
     @Override
     public void execute(@NotNull Player player) throws PerkException {
         Location location = player.getLocation();

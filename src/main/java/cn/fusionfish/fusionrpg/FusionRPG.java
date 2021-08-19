@@ -1,6 +1,7 @@
 package cn.fusionfish.fusionrpg;
 
 import cn.fusionfish.fusionrpg.commands.profiles.ProfileCommand;
+import cn.fusionfish.fusionrpg.commands.wizard.WizardCommand;
 import cn.fusionfish.fusionrpg.listeners.ItemUseListener;
 import cn.fusionfish.fusionrpg.listeners.PlayerJoinListener;
 import cn.fusionfish.fusionrpg.listeners.PlayerQuitListener;
@@ -38,6 +39,7 @@ public class FusionRPG extends FusionPlugin {
 
         getCommandManager().registerCommand(new TestParent());
         getCommandManager().registerCommand(new ProfileCommand());
+        getCommandManager().registerCommand(new WizardCommand());
 
         Bukkit.getOnlinePlayers().stream()
                 .map(Player::getUniqueId)

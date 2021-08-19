@@ -2,6 +2,13 @@ package cn.fusionfish.fusionrpg.perks;
 
 import cn.fusionfish.fusionrpg.FusionRPG;
 import cn.fusionfish.fusionrpg.perks.impl.*;
+import cn.fusionfish.fusionrpg.perks.impl.assassin.AssassinSprint;
+import cn.fusionfish.fusionrpg.perks.impl.warrior.WarriorDefend;
+import cn.fusionfish.fusionrpg.perks.impl.warrior.WarriorSmash;
+import cn.fusionfish.fusionrpg.perks.impl.wizard.WizardEarthSpell;
+import cn.fusionfish.fusionrpg.perks.impl.wizard.WizardFireSpell;
+import cn.fusionfish.fusionrpg.perks.impl.wizard.WizardIceSpell;
+import cn.fusionfish.fusionrpg.perks.impl.wizard.WizardThunderSpell;
 import cn.fusionfish.fusionrpg.players.FusionRPGPlayer;
 import cn.fusionfish.fusionrpg.players.PlayerManager;
 import cn.fusionfish.fusionrpg.players.Profession;
@@ -27,7 +34,9 @@ public enum Perks {
 
     //法师
     WIZARD_FIRE_SPELL("火焰法术", new WizardFireSpell(), 10, Profession.Wizard),
-    WIZARD_ICE_SPELL("冰冻法术", new WizardIceSpell(), 10, Profession.Wizard);
+    WIZARD_ICE_SPELL("冰冻法术", new WizardIceSpell(), 10, Profession.Wizard),
+    WIZARD_THUNDER_SPELL("雷击法术", new WizardThunderSpell(), 10, Profession.Wizard),
+    WIZARD_EARTH_SPELL("土系法术", new WizardEarthSpell(), 10, Profession.Wizard);
 
     private final Perk perksImpl;
     private final List<Profession> profession;

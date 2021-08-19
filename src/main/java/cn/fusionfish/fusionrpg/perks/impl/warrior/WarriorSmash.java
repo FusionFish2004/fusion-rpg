@@ -1,7 +1,8 @@
-package cn.fusionfish.fusionrpg.perks.impl;
+package cn.fusionfish.fusionrpg.perks.impl.warrior;
 
 import cn.fusionfish.fusionrpg.FusionRPG;
 import cn.fusionfish.fusionrpg.perks.PerkException;
+import cn.fusionfish.fusionrpg.perks.impl.Perk;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
